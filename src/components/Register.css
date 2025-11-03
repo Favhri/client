@@ -1,0 +1,150 @@
+/* client/src/components/Register.css */
+
+.register-page-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f8f8f8;
+    overflow: hidden;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.register-bg-shape {
+    position: absolute;
+    top: -150px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 600px;
+    height: 600px;
+    background-color: #007bff; /* Warna biru untuk bedain */
+    border-radius: 50%;
+    z-index: 0;
+}
+
+.register-card-desktop {
+    background-color: #fff;
+    padding: 60px 80px;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+    text-align: left;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.register-header-desktop {
+    font-size: 42px;
+    color: #333;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.register-subtext-desktop {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.register-subtext-desktop a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.register-subtext-desktop a:hover {
+    text-decoration: underline;
+}
+
+/* Menggunakan style group yang sama dari login */
+.form-group-desktop {
+    position: relative;
+    margin-bottom: 25px;
+}
+
+.form-group-desktop input {
+    width: 100%;
+    padding: 15px 20px;
+    padding-right: 50px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 17px;
+    box-sizing: border-box;
+    background-color: #f8f8f8;
+}
+
+.form-group-desktop input:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+}
+
+.input-icon-desktop {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #999;
+    font-size: 20px;
+}
+
+.register-button-desktop {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 180px;
+    padding: 15px 25px;
+    background-color: #f0f0f0;
+    color: #333;
+    border: none;
+    border-radius: 30px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    align-self: flex-end;
+    gap: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.register-button-desktop:hover {
+    background-color: #007bff;
+    color: white;
+}
+
+/* Menggunakan style arrow yang sama */
+.arrow-icon-desktop {
+    font-size: 20px;
+}
+
+.back-arrow-desktop {
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    font-size: 30px;
+    color: #333;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.error-message {
+    color: #dc3545;
+    font-size: 14px;
+    text-align: center;
+    margin-top: 15px;
+}
+
+.success-message {
+    color: #28a745;
+    font-size: 14px;
+    text-align: center;
+    margin-top: 15px;
+}

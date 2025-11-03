@@ -1,0 +1,46 @@
+/* client/src/components/Home.css */
+
+.home-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* Mulai setelah navbar (60px) + 20px margin */
+    padding-top: 80px;
+    min-height: calc(100vh - 80px); /* 100vh - padding atas */
+    background-color: #f8f8f8;
+    padding: 20px;
+    padding-top: 80px; /* override */
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.home-card {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+}
+
+.home-card h1 {
+    font-size: 36px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.welcome-message {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 25px;
+}
+
+.home-link {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.home-link:hover {
+    text-decoration: underline;
+}

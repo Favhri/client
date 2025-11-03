@@ -1,7 +1,8 @@
-// client/src/components/Register.js
+// client/src/components/Register.jsx
 import React, { useState } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
+import './Register.css'; // Kita akan buat file CSS ini
 
 function Register() {
   const [username, setUsername] = useState('');
@@ -12,7 +13,6 @@ function Register() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      // Kirim data ke backend (port 5000)
       const res = await axios.post('http://localhost:5000/api/auth/register', {
         username,
         password,
@@ -26,30 +26,47 @@ function Register() {
   };
 
   return (
-    <div>
-      <h2>Register</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>Username:</label>
-          <input
-            type="text"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            required
-          />
-        </div>
-        <div>
-          <label>Password:</label>
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </div>
-        <button type="submit">Register</button>
-      </form>
-      {message && <p>{message}</p>}
+    <div className="register-page-container">
+      <div className="register-bg-shape"></div>
+
+      <div className="back-arrow-desktop" onClick={() => navigate(-1)}>
+        &larr;
+      </div>
+
+      <div className="register-card-desktop">
+        <h2 className="register-header-desktop">Sign Up</h2>
+        <p className="register-subtext-desktop">
+          Already have an account? <Link to="/login">Sign In</Link>
+        </p>
+
+        <form onSubmit={handleSubmit}>
+          <div className="form-group-desktop">
+            <input
+              type="text"
+              placeholder="Username"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              required
+            />
+            <span className="input-icon-desktop">👤</span>
+          </div>
+          <div className="form-group-desktop">
+            <input
+              type="password"
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+            <span className="input-icon-desktop">🔒</span>
+          </div>
+          <button type="submit" className="register-button-desktop">
+            Sign Up <span className="arrow-icon-desktop">&rarr;</span>
+          </button>
+        </form>
+        
+        {message && <p className={message.includes('berhasil') ? 'success-message' : 'error-message'}>{message}</p>}
+      </div>
     </div>
   );
 }
