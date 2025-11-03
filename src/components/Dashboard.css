@@ -1,73 +1,64 @@
 /* client/src/components/Dashboard.css */
 
-.dashboard-container {
+/* 1. Kontainer UTAMA. Ini yang jadi 'border' oranye */
+.dashboard-layout-container {
+    /* Margin (ini yang jadi border oranye lu) */
+    margin-top: 80px; /* 60px buat navbar + 20px jarak atas */
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+
+    /* Penting: Hapus 'height' dari sini biar bisa di-scroll */
+    
+    box-sizing: border-box; 
+    
+    /* Pengaturan layout buat 3 gambar di dalemnya */
     display: flex;
-    justify-content: center;
-    align-items: center;
-    /* Mulai setelah navbar (60px) + 20px margin */
-    padding-top: 80px; 
-    min-height: calc(100vh - 80px); /* 100vh - padding atas */
-    background-color: #f8f8f8;
-    padding: 20px;
-    padding-top: 80px; /* Dobel padding-top untuk override */
+    flex-direction: column; /* Susun gambarnya ke bawah */
+    
+    /* Ini 'pembatas' (separator) antar gambar */
+    gap: 20px; 
+}
+
+/* 2. Style untuk SETIAP item gambar */
+.dashboard-image-item {
+    /* Pake 'contain' biar gambar utuh ngga kepotong */
+    background-size: contain;     
+    background-position: center;  
+    background-repeat: no-repeat;
+    
+    /* Latar belakang item (di belakang gambar 'contain') */
+    background-color: #FFA500; /* Hitam */
+
+    /* === INI BAGIAN PENTING === */
+    /* Set tinggi TIAP GAMBAR jadi "pas layar" */
+    /* (100% tinggi layar - margin atas & bawah kontainer) */
+    height: calc(100vh - 100px); 
+    
+    width: 100%; /* Lebar penuh */
+    
+    /* Hiasan */
+    border-radius: 8px; 
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
     box-sizing: border-box;
 }
 
-.dashboard-card {
-    background-color: #fff;
-    padding: 40px;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 600px;
-    text-align: center;
+/* 3. TENTUKAN GAMBARNYA DI SINI */
+/* Panggil gambar dari folder /public/ */
+
+.dashboard-image-item.image-1 {
+    /* Pastiin file ini ada di client/public/profil2.jpg */
+    background-image: url('D:\bpbd-project\client\src\assets\profil2.png'); 
 }
 
-.dashboard-card h2 {
-    font-size: 32px;
-    color: #333;
-    margin-bottom: 20px;
+.dashboard-image-item.image-2 {
+    /* GANTI NAMA FILE INI SESUAI NAMA GAMBAR BARU LU */
+    /* Pastiin file ini ada di client/public/ */
+    background-image: url('D:\bpbd-project\client\src\assets\profil3.png'); 
 }
 
-.dashboard-card p {
-    font-size: 16px;
-    color: #666;
-    margin-bottom: 25px;
-    line-height: 1.6;
-}
-
-.user-info {
-    background-color: #e9f7ff;
-    border: 1px solid #cceeff;
-    border-radius: 6px;
-    padding: 15px;
-    margin-top: 30px;
-    margin-bottom: 30px;
-    text-align: left;
-}
-
-.user-info h3 {
-    font-size: 20px;
-    color: #007bff;
-    margin-bottom: 10px;
-}
-
-.user-info p {
-    margin: 5px 0;
-    color: #444;
-}
-
-.dashboard-logout-button {
-    padding: 10px 25px;
-    background-color: #dc3545;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.dashboard-logout-button:hover {
-    background-color: #c82333;
+.dashboard-image-item.image-3 {
+    /* GANTI NAMA FILE INI SESUAI NAMA GAMBAR BARU LU */
+    /* Pastiin file ini ada di client/public/ */
+    background-image: url('D:\bpbd-project\client\src\assets\profilbencana.png'); 
 }

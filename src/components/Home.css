@@ -7,7 +7,7 @@
     /* Mulai setelah navbar (60px) + 20px margin */
     padding-top: 80px;
     min-height: calc(100vh - 80px); /* 100vh - padding atas */
-    background-color: #f8f8f8;
+    background-color: #FFA500;
     padding: 20px;
     padding-top: 80px; /* override */
     text-align: center;

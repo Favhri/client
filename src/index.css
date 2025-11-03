@@ -1,3 +1,5 @@
+/* client/src/index.css */
+
 /* Import Font dari Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
 
@@ -6,10 +8,10 @@ body {
     font-family: 'Poppins', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-color: #f8f8f8; /* Background utama */
+    background-color: #FFA500; /* Latar belakang oranye */
 }
 
-/* Style Navbar Solid */
+/* === Style Navbar === */
 .navbar {
     background-color: #333;
     padding: 15px 30px;
@@ -17,8 +19,6 @@ body {
     height: 30px; /* Total tinggi 60px dgn padding */
     display: flex;
     align-items: center;
-    
-    /* Tambahkan ini agar navbar nempel di atas */
     position: fixed; 
     top: 0;
     left: 0;
@@ -31,19 +31,24 @@ body {
     margin: 0;
     padding: 0;
     display: flex;
-    align-items: center;
     width: 100%;
+    height: 100%;
+    align-items: stretch; /* Bikin 'li' ngerentang setinggi 60px */
+    
+    /* === 1. PERBAIKAN BUG === */
+    /* Kita jadiin 'nav-list' sebagai 'jangkar' buat menu */
+    position: relative; 
 }
 
 .nav-item {
     margin-right: 20px;
+    display: flex; 
+    align-items: center; 
 }
 
 .nav-item.nav-right {
-    margin-left: auto; /* Mendorong item ke kanan */
+    margin-left: auto;
     margin-right: 0;
-    display: flex;
-    align-items: center;
 }
 
 .nav-link {
@@ -52,19 +57,158 @@ body {
     font-size: 16px;
     font-weight: bold;
     transition: color 0.3s ease;
+    display: flex;
+    align-items: center;
+    height: 100%;
 }
 
 .nav-link:hover {
-    color: #007bff;
+    color: #FFA500;
 }
 
 .nav-user {
     color: white;
     font-size: 16px;
-    margin-left: 10px;
+    margin-right: 15px;
 }
+
+.nav-logout-button {
+    background-color: #FFA500;
+    color: #333;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 14px;
+    font-family: 'Poppins', sans-serif;
+    transition: background-color 0.3s;
+}
+
+.nav-logout-button:hover {
+    background-color: #e69500;
+}
+
+/* Style Halaman Home (Kalo lu mau) */
+.home-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 80px;
+    min-height: calc(100vh - 80px);
+    background-color: #f8f8f8; /* Ganti ini kalo mau oranye juga */
+    padding: 20px;
+    padding-top: 80px;
+    text-align: center;
+    box-sizing: border-box;
+}
+/* ... (style .home-card, dll. biarin aja) ... */
+
 
 /* Konten utama */
 .main-content {
-  padding-top: 0; /* Navbar tidak mendorong konten */
+  padding-top: 0; 
+}
+
+
+/* === STYLE MEGA MENU (Dengan Perbaikan Bug) === */
+
+/* Wrapper untuk 'Layanan' */
+.nav-item.has-megamenu {
+  /* Biarin 'li' ngerentang setinggi 60px (dapet dari .nav-list) */
+  /* Kita gak perlu 'position: relative' di sini */
+}
+
+/* Kontainer Mega Menu (Wrapper Luar) */
+.mega-menu {
+  display: none; 
+  
+  /* === 2. PERBAIKAN BUG === */
+  /* Ganti 'fixed' jadi 'absolute' */
+  position: absolute; 
+  
+  /* 'top: 100%' berarti nempel di bawah parent-nya (.nav-list) */
+  top: 100%; 
+  left: 0;
+  right: 0;
+  width: 100%;
+  background-color: #ffffff;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+  
+  /* Z-index 999 biarin aja, tapi 'absolute' udah cukup */
+  z-index: 999;
+  
+  opacity: 0;
+  visibility: hidden;
+  
+  /* Transisi 'opacity' aja, lebih aman */
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+/* Tampilkan Menu pas Hover */
+.nav-item.has-megamenu:hover > .mega-menu {
+  display: block;
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Konten di dalem Mega Menu (Biar rapi di tengah) */
+.mega-menu-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 25px 20px;
+}
+
+/* Kolom-kolom di dalem menu */
+.mega-menu-column {
+  flex: 1;
+  padding: 0 20px;
+  min-width: 200px;
+}
+
+.mega-menu-column h4 {
+  font-size: 16px;
+  color: #333;
+  margin-top: 0;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #FFA500;
+  padding-bottom: 10px;
+  display: inline-block;
+}
+
+.mega-menu-column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.mega-menu-column ul li {
+  margin-bottom: 10px;
+}
+
+.mega-menu-column ul li a {
+  text-decoration: none;
+  color: #555;
+  font-size: 15px;
+  display: block;
+  padding: 5px 0;
+  transition: color 0.2s;
+}
+
+.mega-menu-column ul li a:hover {
+  color: #FFA500;
+}
+
+.mega-menu-column p {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Biar kursornya pas di 'Layanan' */
+.nav-item.has-megamenu > .nav-link {
+    cursor: pointer;
 }
